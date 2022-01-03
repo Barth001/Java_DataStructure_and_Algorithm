@@ -8,6 +8,7 @@ public class Queue {
     public Queue(){
         this.arr = new int[size];
     }
+    //Parameter constructor
     public Queue(int size){
         this.size = size;
         this.arr = new int[size];

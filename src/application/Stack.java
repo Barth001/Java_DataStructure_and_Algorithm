@@ -7,6 +7,7 @@ public class Stack {
     public Stack(){
         this.arr = new int[size];
     }
+    //Parameter constructor
     public Stack(int size){
         this.size = size;
         this.arr = new int[size];

@@ -10,6 +10,7 @@ public class CircularQueue {
     public CircularQueue(){
         this.arr = new int[size];
     }
+    //Parameter constructor
     public CircularQueue(int size){
         this.size = size;
         this.arr = new int[size];
