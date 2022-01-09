@@ -27,6 +27,41 @@ public class DoublyLinkedList {
         System.out.println(this);
     }
 
+    public int get(int index){
+        if(index < 0 || index > (size - 1)){
+            System.out.println("Index is out of range");
+            return Integer.MIN_VALUE;
+        }
+        int mid = (size - 1)/2;
+        Node target;
+        if(index > mid){
+            target = forwardFind(index);
+        } else {
+            target = backwardFind(index);
+        }
+        return target.data;
+    }
+
+    private Node forwardFind(int index){
+        int i = 0;
+        Node current = head;
+        while (current != null && i != index){
+            current = current.next;
+            i++;
+        }
+        return current;
+    }
+
+    private Node backwardFind(int index){
+        int i = size - 1;
+        Node current = tail;
+        while (current != null && i != index){
+            current = current.next;
+            i++;
+        }
+        return current;
+    }
+
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
@@ -42,5 +77,7 @@ public class DoublyLinkedList {
         DoublyLinkedList dll = new DoublyLinkedList();
         dll.add(70);
         dll.add(72);
+        dll.add(74);
+        System.out.println(dll.get(0));
     }
 }
