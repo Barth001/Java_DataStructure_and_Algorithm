@@ -85,6 +85,28 @@ public class DoublyLinkedList {
         return current;
     }
 
+    public void delete(int index){
+        if(index < 0 || index > (size - 1)){
+            System.out.println("Index is out of range");
+        }
+        Node current = findNode(index);
+        Node previousNode = current.prev;
+        Node nextNode = current.next;
+        if(current == head){
+            head = head.next;
+            head.prev = null;
+        } else  if(current == tail){
+            tail = tail.prev;
+            tail.next = null;
+        } else {
+            previousNode.next = nextNode;
+            nextNode.prev = previousNode;
+            current.prev = current.next = null;
+        }
+        size--;
+        System.out.println(this);
+    }
+
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
@@ -96,12 +118,14 @@ public class DoublyLinkedList {
         sb.append("]");
         return sb.toString();
     }
+
     public static void main(String[] args) {
         DoublyLinkedList dll = new DoublyLinkedList();
         dll.add(70);
         dll.add(72);
         dll.add(74);
-        System.out.println(dll.get(1));
-        dll.insert(78, 0);
+        dll.delete(2);
+        //System.out.println(dll.get(2));
+        //dll.insert(78, 2);
     }
 }
